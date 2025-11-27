@@ -18,7 +18,8 @@ import {
   Search, 
   Lightbulb, 
   Target, 
-  Database 
+  Database, 
+  Plus
 } from 'lucide-react';
 
 const SearchResults: React.FC = () => {
@@ -156,6 +157,10 @@ const SearchResults: React.FC = () => {
           <span><strong>成立年份:</strong> {enterprise.establishedYear}</span>
           <span><strong>注册资本:</strong> {enterprise.registeredCapital}</span>
         </div>
+        <button className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg border border-red-200 hover:bg-red-100">
+          <Plus className="w-4 h-4" />
+          订阅
+        </button>
       </div>
       
       <div className="flex flex-wrap gap-2 mb-3">
@@ -185,6 +190,10 @@ const SearchResults: React.FC = () => {
             </span>
           ))}
         </div>
+        <button className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg border border-red-200 hover:bg-red-100">
+          <Plus className="w-4 h-4" />
+          订阅
+        </button>
       </div>
       
       <div className="text-sm text-gray-600 mb-3 space-y-1">

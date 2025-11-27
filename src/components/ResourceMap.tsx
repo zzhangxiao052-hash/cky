@@ -37,6 +37,34 @@ const ResourceMap: React.FC = () => {
   return (
     <div className="w-full mx-auto mb-6">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        {/* Resource Type Buttons - 始终显示在地图标题之上 */}
+        <div className="p-6">
+          <div className="flex justify-between gap-2 mb-4">
+            {resourceTypes.map((type) => (
+              <button
+                key={type.id}
+                onClick={() => handleTypeClick(type.id)}
+                className={`
+                  flex-1 border rounded-lg px-2 py-3 transition-all duration-200
+                  ${activeCategory === type.id 
+                    ? 'bg-blue-500 border-blue-600 text-white shadow-md' 
+                    : 'bg-white border-gray-200 text-gray-700 hover:border-blue-400 hover:shadow-sm'
+                  }
+                `}
+              >
+                <div className="flex flex-col items-center space-y-1">
+                  <span className={`text-xs font-medium ${activeCategory === type.id ? 'text-white' : 'text-gray-800'}`}>
+                    {type.label}
+                  </span>
+                  <span className={`text-xs font-mono ${activeCategory === type.id ? 'text-blue-100' : 'text-gray-500'}`}>
+                    {type.count}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Header with toggle */}
         <div 
           className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 cursor-pointer hover:from-blue-100 hover:to-indigo-100 transition-colors relative"
@@ -55,32 +83,6 @@ const ResourceMap: React.FC = () => {
         {/* Collapsible content */}
         {isExpanded && (
           <div className="p-6">
-            {/* Resource Type Buttons - Flex with justify-between for dynamic spacing */}
-            <div className="flex justify-between gap-2 mb-6">
-              {resourceTypes.map((type) => (
-                <button
-                  key={type.id}
-                  onClick={() => handleTypeClick(type.id)}
-                  className={`
-                    flex-1 border rounded-lg px-2 py-3 transition-all duration-200
-                    ${activeCategory === type.id 
-                      ? 'bg-blue-500 border-blue-600 text-white shadow-md' 
-                      : 'bg-white border-gray-200 text-gray-700 hover:border-blue-400 hover:shadow-sm'
-                    }
-                  `}
-                >
-                  <div className="flex flex-col items-center space-y-1">
-                    <span className={`text-xs font-medium ${activeCategory === type.id ? 'text-white' : 'text-gray-800'}`}>
-                      {type.label}
-                    </span>
-                    <span className={`text-xs font-mono ${activeCategory === type.id ? 'text-blue-100' : 'text-gray-500'}`}>
-                      {type.count}
-                    </span>
-                  </div>
-                </button>
-              ))}
-            </div>
-
             {/* Map and Chart Side-by-Side - 动态显示当前选中类型的图片 */}
             <div className="flex gap-6">
               {/* Map Section */}

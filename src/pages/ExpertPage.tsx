@@ -84,10 +84,23 @@ const ExpertPage: React.FC = () => {
         <div className="relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-3xl overflow-hidden mb-8">
           <div className="relative p-10 md:p-14 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">专家人才</h1>
+              <div className="flex items-center gap-3 mb-6">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">专家人才</h1>
+              </div>
               <div className="flex items-center gap-2 mb-4">
-                <select className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-700">
-                  <option>专家</option>
+                <select
+                  className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-700"
+                  onChange={(e) => {
+                    if (e.target.value === '专家全景') {
+                      window.location.href = '/expert/panorama';
+                    } else {
+                      window.location.href = '/expert';
+                    }
+                  }}
+                  value="专家人才"
+                >
+                  <option value="专家人才">专家人才</option>
+                  <option value="专家全景">专家全景</option>
                 </select>
                 <input className="flex-1 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-700" placeholder="请输入专家姓名、研究方向、机构名称等" />
                 <button className="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm flex items-center gap-2">
@@ -118,13 +131,12 @@ const ExpertPage: React.FC = () => {
           <div className="space-y-6">
             {featuredExperts.map((ex, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
-                <div className="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold">
+                <a href="/expert/detail" className="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold cursor-pointer" aria-label="查看专家详情">
                   {ex.initial}
-                </div>
+                </a>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-lg font-semibold text-blue-700">{ex.name}</span>
-                    <a href="#" className="text-xs text-blue-600 underline">{ex.link}</a>
                   </div>
                   <p className="text-sm text-gray-600 mb-4">{ex.desc}</p>
                   <div className="flex flex-wrap gap-4 text-sm">
@@ -184,4 +196,3 @@ const ExpertPage: React.FC = () => {
 }
 
 export default ExpertPage
-

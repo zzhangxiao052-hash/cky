@@ -76,7 +76,7 @@ const RecommendationSection: React.FC = () => {
             <h2 className="text-xl font-bold text-gray-900">科创智策</h2>
             <span className="text-xs text-gray-400 ml-2">精准支撑社会效益，赋能决策与管理提效</span>
           </div>
-          <button className="text-gray-400 hover:text-blue-600 text-sm flex items-center">
+          <button onClick={() => navigate('/strategy/subscribe')} className="text-gray-400 hover:text-blue-600 text-sm flex items-center">
             订阅 <ChevronRight className="w-4 h-4" />
           </button>
         </div>
