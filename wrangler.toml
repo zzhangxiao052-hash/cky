@@ -1,5 +1,8 @@
 name = "cky"
 compatibility_date = "2025-11-27"
 
+# Cloudflare Pages build output directory (Pages Beta)
+pages_build_output_dir = "./dist"
+
 [site]
 bucket = "./dist"
