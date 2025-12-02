@@ -82,8 +82,15 @@ const RecommendationSection: React.FC = () => {
         </div>
 
         <div className="flex gap-6 mb-4 border-b border-gray-100 pb-2">
-          {['科创图谱', '技术报告', '企业画像'].map((tab, i) => (
-            <button key={tab} className={`text-sm font-medium pb-2 relative ${i === 1 ? 'text-blue-600' : 'text-gray-500'}`}>
+          {['技术检测', '竞合机构检测', '专家检测'].map((tab, i) => (
+            <button
+              key={tab}
+              onClick={() => {
+                if (tab === '竞合机构检测') navigate('/competitor-detection');
+                if (tab === '专家检测') navigate('/expert-detection');
+              }}
+              className={`text-sm font-medium pb-2 relative ${i === 1 ? 'text-blue-600' : 'text-gray-500'}`}
+            >
               {tab}
               {i === 1 && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full" />}
             </button>

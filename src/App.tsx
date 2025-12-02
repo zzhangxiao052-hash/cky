@@ -13,6 +13,8 @@ import ExpertDetailPage from './pages/ExpertDetailPage';
 import AchievementPage from './pages/AchievementPage';
 import ResourcePage from './pages/ResourcePage';
 import StrategySubscribePage from './pages/StrategySubscribePage';
+import CompetitorDetectionPage from './pages/CompetitorDetectionPage';
+import ExpertDetectionPage from './pages/ExpertDetectionPage';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/datasets" element={<DatasetsPage />} />
         <Route path="/api" element={<DataAPIPage />} />
         <Route path="/strategy/subscribe" element={<StrategySubscribePage />} />
+        <Route path="/competitor-detection" element={<CompetitorDetectionPage />} />
+        <Route path="/expert-detection" element={<ExpertDetectionPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
